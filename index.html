@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>2026.05–07 台灣手搖・甜品社群趨勢觀察</title>
+  <title>市調報告入口｜台灣手搖・甜品市場趨勢觀察</title>
   <style>
     :root {
       --paper: #f5f1e8;
@@ -22,7 +22,6 @@
       --serif: "Source Han Serif TC", "Noto Serif TC", "思源宋體 TC", "Songti TC", serif;
       --sans: "Noto Sans TC", "Source Han Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -38,10 +37,10 @@
     }
     a { color: var(--green); text-underline-offset: 3px; }
     a:hover { color: #27493e; }
-    button { font: inherit; }
 
-    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
-    .masthead { padding: 70px 0 42px; border-bottom: 1px solid var(--line); }
+    .shell { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
+
+    .masthead { padding: 86px 0 48px; border-bottom: 1px solid var(--line); }
     .kicker {
       display: flex; align-items: center; gap: 12px;
       color: var(--green); font-size: 12px; font-weight: 700;
@@ -49,378 +48,102 @@
     }
     .kicker::before { content: ""; width: 44px; height: 1px; background: var(--green); }
     h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.28; margin: 0; }
-    h1 { max-width: 900px; margin-top: 22px; font-size: clamp(36px, 4.8vw, 60px); letter-spacing: -.035em; }
+    h1 { max-width: 820px; margin-top: 22px; font-size: clamp(34px, 4.6vw, 54px); letter-spacing: -.035em; }
     h1 span { color: var(--apricot); }
-    .deck {
-      display: grid; grid-template-columns: 1.5fr .7fr; gap: 50px;
-      align-items: end; margin-top: 34px;
+    .masthead p { max-width: 640px; margin: 26px 0 0; font-size: 17px; color: #3c4742; }
+
+    main { padding: 56px 0 100px; }
+
+    .list-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 26px; flex-wrap: wrap; }
+    .list-head h2 { font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -.02em; }
+    .list-count { color: var(--muted); font-size: 13px; }
+
+    .report-list { display: grid; gap: 18px; }
+    .report-card {
+      display: grid; grid-template-columns: 150px 1fr auto; align-items: center; gap: 28px;
+      padding: 28px 30px; border: 1px solid var(--line); border-radius: 18px;
+      background: var(--paper-2); text-decoration: none; color: inherit;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .deck p { max-width: 760px; margin: 0; font-size: 18px; color: #3c4742; }
-    .meta { border-left: 1px solid var(--line); padding-left: 24px; font-size: 12px; color: var(--muted); }
-    .meta strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 13px; }
-
-    .sticky-nav {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(245,241,232,.93); backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(216,211,200,.85);
+    .report-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: #cfc7b6; }
+    .report-period { font-family: var(--serif); color: var(--apricot); font-size: 15px; letter-spacing: .04em; }
+    .report-period small { display: block; margin-top: 4px; color: var(--muted); font-family: var(--sans); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+    .report-body h3 { font-size: 21px; margin-bottom: 8px; }
+    .report-body p { margin: 0; color: var(--muted); font-size: 14px; max-width: 540px; }
+    .report-go {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px;
+      border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 700;
+      color: var(--ink); white-space: nowrap;
     }
-    .nav-inner { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0; scrollbar-width: none; }
-    .nav-inner::-webkit-scrollbar { display: none; }
-    .nav-inner a {
-      flex: 0 0 auto; padding: 7px 12px; border-radius: 99px;
-      color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 700;
+    .report-card:hover .report-go { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .report-card.featured { border-top: 4px solid var(--apricot); }
+    .featured-tag {
+      display: inline-block; margin-bottom: 8px; padding: 3px 9px; border-radius: 99px;
+      background: var(--apricot-soft); color: #945236; font-size: 10px; font-weight: 800; letter-spacing: .1em;
     }
-    .nav-inner a:hover { background: var(--paper-2); color: var(--green); }
 
-    main { padding: 34px 0 90px; }
-    section { scroll-margin-top: 72px; padding: 52px 0; }
-    .section-head { display: grid; grid-template-columns: 150px 1fr; gap: 30px; margin-bottom: 30px; }
-    .section-no { color: var(--apricot); font-family: var(--serif); font-size: 14px; letter-spacing: .14em; }
-    h2 { font-size: clamp(26px, 3vw, 36px); letter-spacing: -.025em; }
-    .section-sub { max-width: 760px; margin: 10px 0 0; color: var(--muted); }
-
-    .summary-card {
-      padding: 34px 38px 30px; border: 1px solid #eadfce; border-top: 4px solid #c27b43;
-      border-radius: 14px; background: linear-gradient(135deg, #fffefb 0%, #fcf8f1 100%);
-      box-shadow: 0 14px 36px rgba(90,64,38,.045);
+    .notes {
+      margin-top: 40px; padding: 22px 26px; border-radius: 16px;
+      background: #e9e5dc; color: var(--muted); font-size: 13px;
     }
-    .summary-card .lead { max-width: 1020px; color: #4f554f; font-size: 15px; line-height: 1.85; }
-    .summary-card .lead em { color: var(--ink); font-style: normal; font-weight: 800; background: linear-gradient(transparent 68%, rgba(216,142,101,.24) 0); }
-    .summary-signals { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 24px; border-top: 1px solid #e8ddce; border-bottom: 1px solid #e8ddce; }
-    .signal { padding: 20px 24px; border-left: 1px solid #e8ddce; }
-    .signal:first-child { padding-left: 0; border-left: 0; }
-    .signal-label { display: block; margin-bottom: 7px; color: #aa6c34; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
-    .signal strong { display: block; color: var(--ink); font-family: var(--serif); font-size: 18px; }
-    .signal p { margin: 5px 0 0; color: #756c61; font-size: 12px; line-height: 1.65; }
-    .formula { margin-top: 18px; }
-    .formula small { display: block; margin-bottom: 9px; color: #8f7356; font-size: 9px; font-weight: 800; letter-spacing: .16em; }
-    .formula-list { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; }
-    .formula-list span { display: inline-flex; align-items: baseline; gap: 6px; color: var(--ink); font-family: var(--serif); font-size: 15px; font-weight: 600; white-space: nowrap; }
-    .formula-list span + span::before { content: "＋"; margin-right: 7px; color: #c18a53; font-family: var(--sans); font-size: 13px; font-weight: 400; }
-    .formula-list b { color: #b9673f; font-family: var(--sans); font-size: 8px; letter-spacing: .1em; }
-
-    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px 180px; }
-    .filter-btn {
-      border: 1px solid var(--line); border-radius: 999px; background: transparent;
-      padding: 8px 14px; color: var(--muted); cursor: pointer; transition: .2s ease;
-    }
-    .filter-btn:hover, .filter-btn.active { background: var(--ink); border-color: var(--ink); color: #fff; }
-
-    .trend-table { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: rgba(251,249,244,.72); }
-    table { width: 100%; border-collapse: collapse; }
-    th { padding: 14px 16px; background: #e9e5dc; color: var(--muted); font-size: 11px; text-align: left; letter-spacing: .08em; }
-    td { padding: 18px 16px; border-top: 1px solid var(--line); vertical-align: top; font-size: 14px; }
-    td:first-child { font-family: var(--serif); font-size: 17px; font-weight: 600; }
-    tr[hidden] { display: none; }
-    .pill { display: inline-flex; padding: 4px 9px; border-radius: 99px; font-size: 11px; font-weight: 700; white-space: nowrap; }
-    .pill.strong { background: var(--apricot-soft); color: #945236; }
-    .pill.growth { background: var(--green-soft); color: var(--green); }
-    .pill.topic { background: var(--yellow-soft); color: #7d6222; }
-
-    .month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .month {
-      position: relative; overflow: hidden; padding: 26px; border: 1px solid var(--line);
-      border-radius: 22px; background: var(--paper-2); min-height: 360px;
-    }
-    .month::after {
-      content: attr(data-month); position: absolute; right: -2px; top: -34px;
-      font-family: var(--serif); font-size: 130px; color: rgba(66,103,90,.055); line-height: 1;
-    }
-    .month h3 { position: relative; z-index: 1; font-size: 27px; }
-    .month .theme { position: relative; z-index: 1; margin: 6px 0 22px; color: var(--apricot); font-weight: 700; font-size: 13px; }
-    .month ol { position: relative; z-index: 1; margin: 0; padding-left: 22px; }
-    .month li { margin: 0 0 14px; color: #4b554f; font-size: 14px; }
-    .month li strong { color: var(--ink); }
-
-    .visual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .visual-card {
-      overflow: hidden; border: 1px solid var(--line); border-radius: 18px;
-      background: var(--paper-2); transition: transform .22s ease, box-shadow .22s ease;
-    }
-    .visual-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .visual-card.featured { grid-column: span 2; }
-    .visual-card a.image-link { display: block; background: #e9e5dc; }
-    .visual-card img { display: block; width: 100%; height: 235px; object-fit: cover; }
-    .visual-card.featured img { height: 310px; }
-    .visual-copy { padding: 16px 17px 17px; }
-    .visual-copy .visual-month { color: var(--apricot); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
-    .visual-copy h3 { margin: 5px 0 5px; font-size: 18px; }
-    .visual-copy p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
-    .visual-copy .source { display: inline-block; margin-top: 8px; font-size: 11px; }
-
-    .case-list { display: grid; gap: 14px; }
-    details {
-      border-top: 1px solid var(--line); padding: 18px 0;
-    }
-    details:last-child { border-bottom: 1px solid var(--line); }
-    summary { cursor: pointer; list-style: none; display: grid; grid-template-columns: 64px 168px 1fr auto; gap: 18px; align-items: center; }
-    summary::-webkit-details-marker { display: none; }
-    .case-month { color: var(--apricot); font-family: var(--serif); font-size: 13px; }
-    .case-thumb { width: 168px; height: 112px; object-fit: cover; border-radius: 13px; border: 1px solid var(--line); background: #e9e5dc; }
-    .case-title { font-family: var(--serif); font-size: 20px; font-weight: 600; }
-    .plus { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; transition: .2s ease; }
-    details[open] .plus { transform: rotate(45deg); background: var(--ink); color: white; border-color: var(--ink); }
-    .case-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; margin: 20px 48px 0 250px; color: #4b554f; }
-    .case-body p { margin: 0; }
-    .case-line { align-items: start; }
-    .case-line:nth-of-type(-n+2) { padding: 16px 0 20px; border-top: 1px solid var(--line); }
-    .case-line:nth-of-type(-n+2) .case-label { display: block; margin-bottom: 10px; }
-    .case-label { color: #77736b; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
-    .case-line:nth-of-type(3), .case-line:nth-of-type(4) { grid-column: 1 / -1; padding: 20px 24px; border-left: 3px solid var(--green); border-right: 1px solid #d4ddd8; }
-    .case-line:nth-of-type(3) { margin-top: 10px; padding-bottom: 18px; border-top: 1px solid #d4ddd8; border-radius: 12px 12px 0 0; background: #fcfbf7; }
-    .case-line:nth-of-type(4) { padding-top: 16px; border-top: 1px solid #d4ddd8; border-bottom: 1px solid #d4ddd8; border-radius: 0 0 12px 12px; background: #f4f2ed; box-shadow: 0 8px 22px rgba(38,49,45,.04); }
-    .case-line:nth-of-type(3) .case-label, .case-line:nth-of-type(4) .case-label { display: block; margin-bottom: 8px; color: var(--green); }
-    .verdict { color: #59645f; }
-    .case-body > p:last-child { grid-column: 1 / -1; margin-top: 16px; }
-    .case-body > p:last-child a { display: inline-block; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper-2); text-decoration: none; }
-
-    .matrix { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .matrix-card { padding: 24px; border-radius: 18px; border: 1px solid var(--line); background: rgba(251,249,244,.78); }
-    .matrix-card h3 { margin-bottom: 8px; font-size: 21px; }
-    .matrix-card p { margin: 0; color: var(--muted); font-size: 14px; }
-    .matrix-card:nth-child(1) { border-top: 5px solid var(--green); }
-    .matrix-card:nth-child(2) { border-top: 5px solid var(--apricot); }
-    .matrix-card:nth-child(3) { border-top: 5px solid var(--yellow); }
-    .matrix-card:nth-child(4) { border-top: 5px solid #8876a0; }
-
-    .notes { padding: 24px 28px; border-radius: 18px; background: #e9e5dc; color: var(--muted); font-size: 13px; }
     .notes strong { color: var(--ink); }
+
     footer { padding: 28px 0 46px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 
-    @media (max-width: 820px) {
-      .deck, .month-grid, .matrix { grid-template-columns: 1fr; }
-      .summary-signals { grid-template-columns: 1fr; }
-      .signal, .signal:first-child { padding: 16px 0; border-left: 0; border-top: 1px solid #e8ddce; }
-      .signal:first-child { border-top: 0; }
-      .visual-grid { grid-template-columns: repeat(2, 1fr); }
-      .visual-card.featured { grid-column: span 2; }
-      .deck { gap: 22px; }
-      .meta { border-left: 0; border-top: 1px solid var(--line); padding: 16px 0 0; }
-      .section-head { grid-template-columns: 1fr; gap: 8px; }
-      .toolbar { margin-left: 0; }
-      .trend-table { border: 0; background: transparent; overflow: visible; }
-      .trend-table table, .trend-table tbody { display: block; }
-      .trend-table thead { display: none; }
-      .trend-table tr { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); }
-      .trend-table tr[hidden] { display: none; }
-      .trend-table td { display: block; padding: 0; border: 0; }
-      .trend-table td:nth-child(1), .trend-table td:nth-child(5) { grid-column: 1 / -1; }
-      .trend-table td::before { content: attr(data-label); display: block; margin-bottom: 3px; color: var(--muted); font-size: 10px; font-family: var(--sans); font-weight: 700; letter-spacing: .08em; }
-      summary { grid-template-columns: 48px 132px 1fr auto; gap: 12px; }
-      .case-thumb { width: 132px; height: 88px; }
-      .case-body { margin-left: 192px; margin-right: 0; }
-    }
-
-    @media (max-width: 520px) {
-      .shell { width: min(100% - 24px, 1180px); }
-      .masthead { padding-top: 48px; }
-      section { padding: 40px 0; }
-      .summary-card { padding: 26px 22px 24px; }
-      .formula-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
-      .formula-list span { padding: 7px 0; border-top: 1px solid #e8ddce; white-space: normal; }
-      .formula-list span + span::before { display: none; }
-      .visual-grid { grid-template-columns: 1fr; }
-      .visual-card.featured { grid-column: auto; }
-      .visual-card img, .visual-card.featured img { height: 230px; }
-      .trend-table tr { grid-template-columns: 1fr; }
-      .trend-table td:nth-child(n) { grid-column: 1; }
-      summary { grid-template-columns: 112px 1fr auto; }
-      .case-month { grid-column: 1 / -1; }
-      .case-thumb { width: 112px; height: 76px; }
-      .case-body { grid-template-columns: 1fr; gap: 0; margin: 14px 0 0; }
-      .case-line:nth-of-type(-n+2) { grid-column: 1; }
-      .case-line:nth-of-type(2) { padding-top: 16px; }
-    }
-
-    @media print {
-      body { background: white; }
-      .sticky-nav, .toolbar { display: none; }
-      .shell { width: 100%; }
-      .masthead { padding-top: 20px; }
-      section { break-inside: avoid; }
-      details { break-inside: avoid; }
-      details .case-body { display: block; }
-      a { color: inherit; text-decoration: none; }
+    @media (max-width: 720px) {
+      .report-card { grid-template-columns: 1fr; gap: 10px; }
+      .report-go { justify-self: start; }
     }
   </style>
 </head>
 <body>
   <header class="masthead">
     <div class="shell">
-      <div class="kicker">Social Trend Report · Taiwan</div>
-      <h1>2026.05–07<br>手搖・甜品<span>社群趨勢觀察</span></h1>
-      <div class="deck">
-        <p>掌握台灣手搖、甜品冰品、咖啡跨界與超商零售的快速傳播關鍵字，拆解風味大勢、競品動向、聯名操作與消費者真實回饋。</p>
-        <div class="meta"><strong>觀察期間</strong>2026.05.01–07.31<br><strong style="margin-top:10px">更新日期</strong>2026.08.04</div>
-      </div>
+      <div class="kicker">Market Trend Reports · Taiwan</div>
+      <h1>手搖・甜品<span>市調報告</span></h1>
+      <p>彙整每月台灣手搖飲、甜品冰品、咖啡跨界與超商零售的市場趨勢觀察。點進任一月份查看完整報告。</p>
     </div>
   </header>
 
-  <nav class="sticky-nav" aria-label="報告導覽">
-    <div class="shell nav-inner">
-      <a href="#summary">重點結論</a>
-      <a href="#keywords">關鍵字總覽</a>
-      <a href="#timeline">月份演變</a>
-      <a href="#cases">代表案例</a>
-      <a href="#insights">市場判讀</a>
-      <a href="#method">研究說明</a>
-    </div>
-  </nav>
-
   <main class="shell">
-    <section id="summary">
-      <div class="section-head">
-        <div class="section-no">01 · EXECUTIVE</div>
-        <div><h2>經典水果負責銷量，<br>反差食材負責聲量。</h2></div>
-      </div>
-      <div class="summary-card">
-        <div class="lead">5–7 月最大基本盤仍是<em>芒果與楊枝甘露</em>；社群傳播最快的卻是牛奶花生、苦瓜、榴槤、卡士達與鹼粽等<em>熟悉食材的意外轉譯</em>。開心果／杜拜巧克力則已由短期爆款進入跨品類延伸期。</div>
-        <div class="summary-signals">
-          <div class="signal"><span class="signal-label">SALES BASE · 銷量基本盤</span><strong>芒果・楊枝甘露</strong><p>經典水果持續承接夏季剛性需求。</p></div>
-          <div class="signal"><span class="signal-label">BUZZ DRIVER · 聲量引擎</span><strong>反差熟悉食材</strong><p>牛奶花生、苦瓜、榴槤、卡士達與鹼粽創造討論。</p></div>
-          <div class="signal"><span class="signal-label">NEXT WAVE · 延伸機會</span><strong>開心果・杜拜巧克力</strong><p>由短期爆款進入飲品、冰品與零售跨品類延伸。</p></div>
+    <div class="list-head">
+      <h2>月份報告</h2>
+      <span class="list-count">共 3 份報告</span>
+    </div>
+
+    <div class="report-list">
+      <a class="report-card featured" href="reports/2026-09.html">
+        <div class="report-period">2026.09<small>September</small></div>
+        <div class="report-body">
+          <span class="featured-tag">最新</span>
+          <h3>台灣手搖飲與甜品新品月報</h3>
+          <p>聚焦 2026 年 9 月台灣市場具明確上市資訊與公開社群訊號的七個案例。</p>
         </div>
-        <div class="formula"><small>社群擴散公式　/　SOCIAL SPREAD FORMULA</small><div class="formula-list"><span><b>01</b>熟悉食材</span><span><b>02</b>意外載體</span><span><b>03</b>明確口感</span><span><b>04</b>限時理由</span></div></div>
-      </div>
-    </section>
+        <span class="report-go">查看報告 →</span>
+      </a>
 
-    <section id="keywords">
-      <div class="section-head">
-        <div class="section-no">02 · KEYWORDS</div>
-        <div><h2>快速傳播關鍵字總覽</h2><p class="section-sub">可依月份篩選。層級綜合公開社群討論、排隊／售罄與媒體跟進判斷，並非平台後台的絕對聲量排名。</p></div>
-      </div>
-      <div class="toolbar" role="group" aria-label="月份篩選">
-        <button class="filter-btn active" type="button" data-filter="all">全部</button>
-        <button class="filter-btn" type="button" data-filter="may">5月</button>
-        <button class="filter-btn" type="button" data-filter="jun">6月</button>
-        <button class="filter-btn" type="button" data-filter="jul">7月</button>
-      </div>
-      <div class="trend-table">
-        <table>
-          <thead><tr><th>關鍵字群</th><th>主要月份</th><th>擴散層級</th><th>代表案例</th><th>市場判讀</th></tr></thead>
-          <tbody>
-            <tr data-months="may jun jul"><td data-label="關鍵字">芒果・楊枝甘露</td><td data-label="月份">5–7月</td><td data-label="層級"><span class="pill growth">強／持續型</span></td><td data-label="案例">麻古、萬波、大茗、CoCo、大苑子</td><td data-label="判讀">夏季最大基本盤；需求穩定，但同質化高。</td></tr>
-            <tr data-months="may"><td data-label="關鍵字">紅心芭樂・粉紅奶昔</td><td data-label="月份">5月</td><td data-label="層級"><span class="pill strong">強／爆發型</span></td><td data-label="案例">得正 × fwee</td><td data-label="判讀">風味、色彩與彩妝概念高度整合。</td></tr>
-            <tr data-months="may jun jul"><td data-label="關鍵字">荔枝・蜜桃</td><td data-label="月份">5–7月</td><td data-label="層級"><span class="pill growth">中強／季節型</span></td><td data-label="案例">迷客夏果然荔夏、全家水蜜桃霜淇淋</td><td data-label="判讀">清爽、粉色、高顏值；IP客群明確。</td></tr>
-            <tr data-months="may jun jul"><td data-label="關鍵字">開心果・杜拜巧克力</td><td data-label="月份">5–7月</td><td data-label="層級"><span class="pill growth">強／延續型</span></td><td data-label="案例">85℃杜拜可可冰沙、GODIVA與超商冰品</td><td data-label="判讀">由單一甜點擴張為泛品類風味標籤。</td></tr>
-            <tr data-months="may jun jul"><td data-label="關鍵字">台式懷舊甜品</td><td data-label="月份">5–7月</td><td data-label="層級"><span class="pill growth">強／成長型</span></td><td data-label="案例">牛奶花生、仙草奶凍、紅豆粉粿、鹼粽QQ</td><td data-label="判讀">透過奶茶、冰棒與Q料重新年輕化。</td></tr>
-            <tr data-months="jul"><td data-label="關鍵字">卡士達・奶酪・泡芙</td><td data-label="月份">7月</td><td data-label="層級"><span class="pill strong">強／爆發型</span></td><td data-label="案例">迷客夏 × beard papa’s</td><td data-label="判讀">飲料甜點化；具體口感比抽象香氣更好傳播。</td></tr>
-            <tr data-months="jun jul"><td data-label="關鍵字">苦瓜・蔬果系</td><td data-label="月份">6–7月</td><td data-label="層級"><span class="pill topic">中強／話題型</span></td><td data-label="案例">得正蜜蘋苦瓜</td><td data-label="判讀">名稱大膽、入口溫和，降低嘗試門檻。</td></tr>
-            <tr data-months="jul"><td data-label="關鍵字">榴槤</td><td data-label="月份">7月</td><td data-label="層級"><span class="pill topic">強／短期型</span></td><td data-label="案例">大苑子榴槤芒果冰沙</td><td data-label="判讀">高辨識、高爭議，適合限量測試。</td></tr>
-            <tr data-months="jun jul"><td data-label="關鍵字">泰奶・椰奶・南洋感</td><td data-label="月份">6–7月</td><td data-label="層級"><span class="pill growth">中強／季節型</span></td><td data-label="案例">五桐號 × 全家、CoCo生椰楊枝甘露</td><td data-label="判讀">清涼、濃郁與度假聯想兼具。</td></tr>
-            <tr data-months="may jun"><td data-label="關鍵字">紫蘇・梅・草本</td><td data-label="月份">5–6月</td><td data-label="層級"><span class="pill growth">中／潛力型</span></td><td data-label="案例">萬波紫蘇、可不可紫蘇莓果、梅系果茶</td><td data-label="判讀">對應清爽低負擔，爆發力較弱。</td></tr>
-            <tr data-months="may"><td data-label="關鍵字">草莓 × 抹茶</td><td data-label="月份">5月</td><td data-label="層級"><span class="pill growth">中強／回歸型</span></td><td data-label="案例">星巴克草莓風味抹茶那堤</td><td data-label="判讀">粉綠撞色與奶霜感仍有效，但非全新趨勢。</td></tr>
-            <tr data-months="may jun jul"><td data-label="關鍵字">IP・跨界聯名</td><td data-label="月份">5–7月</td><td data-label="層級"><span class="pill strong">強／操作型</span></td><td data-label="案例">fwee、MIND.A.DAY、beard papa’s、愛之味</td><td data-label="判讀">合作方進入產品配方，效果才不只停在杯身。</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <a class="report-card" href="reports/2026-08.html">
+        <div class="report-period">2026.08<small>August</small></div>
+        <div class="report-body">
+          <h3>台灣手搖飲與甜品新品月報</h3>
+          <p>聚焦 2026 年 8 月台灣市場具明確上市資訊與公開社群訊號的五個案例。</p>
+        </div>
+        <span class="report-go">查看報告 →</span>
+      </a>
 
-    <section id="timeline">
-      <div class="section-head">
-        <div class="section-no">03 · TIMELINE</div>
-        <div><h2>三個月的話題如何演變</h2></div>
-      </div>
-      <div class="month-grid">
-        <article class="month" data-month="05"><h3>May · 五月</h3><div class="theme">果香 × 粉色視覺 × 跨界聯名</div><ol><li><strong>紅心芭樂</strong>以彩妝色號、粉紅視覺和烏龍茶底形成完整話題。</li><li><strong>荔枝蜜桃</strong>搭IP與收藏周邊，推動首波嘗試。</li><li><strong>花火禾茶</strong>由Threads推薦帶動排隊，代表消費者發現型爆紅。</li><li><strong>草莓抹茶、仙草奶凍</strong>證明熟悉組合仍可透過視覺與口感回歸。</li></ol></article>
-        <article class="month" data-month="06"><h3>June · 六月</h3><div class="theme">芒果全面開戰 × 反差食材升溫</div><ol><li><strong>芒果</strong>從冰沙延伸至茶、椰子水、優格和奶蓋。</li><li><strong>杜拜巧克力</strong>由甜點進入百元內冰沙，擴大嘗試客群。</li><li><strong>五桐號 × 全家</strong>把手搖風味跨到霜淇淋、冰棒與現調茶。</li><li><strong>鹼粽QQ、番茄蛋花湯</strong>以節慶與視覺反差換取媒體標題。</li></ol></article>
-        <article class="month" data-month="07"><h3>July · 七月</h3><div class="theme">懷舊台味 × 甜點化 × 獵奇限量</div><ol><li><strong>牛奶花生</strong>把台灣懷舊甜品轉成當代白奶茶。</li><li><strong>卡士達奶酪</strong>讓泡芙內餡變成可吸食的甜點配料。</li><li><strong>蜜蘋苦瓜、榴槤芒果</strong>靠「敢不敢喝」推動討論。</li><li><strong>仙草、粉粿、開心果冰品</strong>以真實顆粒與夾心口感獲得分享。</li></ol></article>
-      </div>
-    </section>
+      <a class="report-card" href="reports/2026-07.html">
+        <div class="report-period">2026.05–07<small>May – Jul</small></div>
+        <div class="report-body">
+          <h3>台灣手搖・甜品社群趨勢觀察</h3>
+          <p>經典水果負責銷量，反差食材負責聲量：拆解三個月的快速傳播關鍵字、競品動向與消費者回饋。</p>
+        </div>
+        <span class="report-go">查看報告 →</span>
+      </a>
+    </div>
 
-    <section id="visuals" hidden>
-      <div class="section-head">
-        <div class="section-no">04 · VISUAL SCAN</div>
-        <div><h2>一眼掌握新品宣傳視覺</h2><p class="section-sub">選取與本報告關鍵字高度相關的實際宣傳素材。點擊圖片可查看原始報導與完整活動資訊。</p></div>
-      </div>
-      <div class="visual-grid">
-        <article class="visual-card featured">
-          <a class="image-link" href="https://www.elle.com/tw/life/hot-news/g71332241/twice-fwee-dejeng/" target="_blank" rel="noopener"><img src="https://hips.hearstapps.com/hmg-prod/images/889c2c0f-0d32-42db-b562-7660b5068ba3.jpg?crop=1.00xw%3A0.667xh%3B0%2C0.205xh" alt="得正與fwee紅心芭樂烏龍奶昔聯名宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">MAY · BEAUTY COLLAB</span><h3>得正 × fwee｜紅心芭樂烏龍奶昔</h3><p>粉紅色號、飲品分層與迷你唇釉形成完整的視覺敘事。</p><a class="source" href="https://www.elle.com/tw/life/hot-news/g71332241/twice-fwee-dejeng/" target="_blank" rel="noopener">圖片來源：得正／ELLE刊載</a></div>
-        </article>
-        <article class="visual-card">
-          <a class="image-link" href="https://keedan.com/track/2026/05/04/oliver-peoples-jil-sander-6-sunglasses-2026/" target="_blank" rel="noopener"><img src="https://keedan.com/track/files/2026/05/milk.jpg" alt="迷客夏與MIND.A.DAY果然荔夏聯名宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">MAY · IP COLLAB</span><h3>迷客夏 × MIND.A.DAY｜果然荔夏</h3><p>黃粉雙色、角色杯身與荔枝果飲共同強化夏日收藏感。</p><a class="source" href="https://keedan.com/track/2026/05/04/oliver-peoples-jil-sander-6-sunglasses-2026/" target="_blank" rel="noopener">圖片來源：迷客夏／KEEDAN刊載</a></div>
-        </article>
-        <article class="visual-card">
-          <a class="image-link" href="https://www.cosmopolitan.com/tw/lifestyle/hot-topics/g71198146/starbucks-strawberry-crunch-delights-0506/" target="_blank" rel="noopener"><img src="https://hips.hearstapps.com/hmg-prod/images/367906d8-0382-4e4f-bebf-bbb6d8d75cfd.jpg?crop=0.491xw%3A0.983xh%3B0%2C0" alt="星巴克草莓風味抹茶那堤宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">MAY · RETURNING HIT</span><h3>星巴克｜草莓風味抹茶那堤</h3><p>粉綠撞色與餅乾脆片，使回歸品項仍具高度社群辨識。</p><a class="source" href="https://www.cosmopolitan.com/tw/lifestyle/hot-topics/g71198146/starbucks-strawberry-crunch-delights-0506/" target="_blank" rel="noopener">圖片來源：星巴克／COSMOPOLITAN刊載</a></div>
-        </article>
-        <article class="visual-card">
-          <a class="image-link" href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener"><img src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/07/1783078955589-fd72c7265a0b47fb9f1e51d1f8f1f231-850x566.webp" alt="八曜和茶與愛之味極韻花生系列宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">JUL · TAIWANESE NOSTALGIA</span><h3>八曜和茶 × 愛之味｜極韻花生</h3><p>罐裝甜品、白奶茶與開運周邊，讓懷舊台味變得年輕。</p><a class="source" href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener">圖片來源：品牌提供／WalkerLand刊載</a></div>
-        </article>
-        <article class="visual-card">
-          <a class="image-link" href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener"><img src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/06/1782222339701-098ae4561c3c4e81afbeb23075700f32-850x599.webp" alt="得正蜜蘋苦瓜系列宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">JUL · VEGETABLE TWIST</span><h3>得正｜蜜蘋苦瓜</h3><p>以清透綠色與白玉苦瓜溝通清爽，降低食材的排斥感。</p><a class="source" href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener">圖片來源：品牌提供／WalkerLand刊載</a></div>
-        </article>
-        <article class="visual-card">
-          <a class="image-link" href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener"><img src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/06/1782731390782-4458f21dc48449ee834a91c8f7adadaa-850x566.webp" alt="迷客夏與beard papa's香草雲朵季宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">JUL · DESSERTIFICATION</span><h3>迷客夏 × beard papa’s｜香草雲朵季</h3><p>聯名黃、泡芙品牌符號與奶霜質地，快速建立卡士達聯想。</p><a class="source" href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener">圖片來源：品牌提供／WalkerLand刊載</a></div>
-        </article>
-        <article class="visual-card featured">
-          <a class="image-link" href="https://www.walkerland.com.tw/subject/view/424196" target="_blank" rel="noopener"><img src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/07/1783496766918-a085cd9de1e44e63bcd23486394f91e8-850x600.webp" alt="大苑子榴槤芒果冰沙宣傳" loading="lazy"></a>
-          <div class="visual-copy"><span class="visual-month">JUL · LIMITED CHALLENGE</span><h3>大苑子｜榴槤芒果冰沙</h3><p>鮮黃產品色、限量資訊與挑戰標籤，把味覺爭議轉化成行動理由。</p><a class="source" href="https://www.walkerland.com.tw/subject/view/424196" target="_blank" rel="noopener">圖片來源：大苑子／WalkerLand刊載</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="cases">
-      <div class="section-head">
-        <div class="section-no">04 · CASES</div>
-        <div><h2>代表競品案例與消費者回饋</h2><p class="section-sub">點開案例，快速比較產品賣點、活動企劃、消費者回饋與趨勢判讀。</p></div>
-      </div>
-      <div class="case-list">
-        <details open><summary><span class="case-month">MAY</span><img class="case-thumb" src="https://hips.hearstapps.com/hmg-prod/images/889c2c0f-0d32-42db-b562-7660b5068ba3.jpg?crop=1.00xw%3A0.667xh%3B0%2C0.205xh" alt="得正與fwee紅心芭樂烏龍奶昔宣傳縮圖" loading="lazy"><span class="case-title">得正 × fwee｜紅心芭樂烏龍奶昔</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>紅心芭樂果香、烏龍茶韻與芝士奶蓋，對應 fwee 奶昔唇釉 Guava Crush 的色彩與質地。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>跨界聯名搭配限量唇釉小樣、愛心杯套，將合作概念同步落在顏色、口味與贈品。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>限量贈品快速缺貨；飲品獲得芭樂香、茶韻與奶蓋意外協調的正面評價，並出現希望轉常態的留言。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>5月完成度最高的整合式聯名，證明美妝色號能轉譯成可飲用、可收藏的完整體驗。</span></p><p><a href="https://meet.eslite.com/tw/tc/article/202605250005" target="_blank" rel="noopener">系列資訊</a>　<a href="https://www.threads.com/@jennieni777/post/DYlj1poDyG0/video-%E8%84%86%E5%8F%8B%E6%B2%92%E9%A8%99%E4%BA%BA%E7%B4%85%E5%BF%83%E8%8A%AD%E6%A8%82%E7%83%8F%E9%BE%8D%E5%A5%B6%E6%98%94%E7%9C%9F%E7%9A%84%E5%A5%BD%E5%96%9D" target="_blank" rel="noopener">社群回饋</a></p></div></details>
-        <details><summary><span class="case-month">MAY</span><img class="case-thumb" src="https://ian.marieclaire.com.tw/assets/mc/202605/6A1949B1794501780042161.jpeg?format=jpg&amp;t=sc&amp;w=1200%2C675" alt="花火禾茶品牌與飲品宣傳縮圖" loading="lazy"><span class="case-title">花火禾茶｜Threads發現型排隊品牌</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>茶底品質搭配金魚花火玉露、花嫁系列等具畫面感的命名，形成日系精緻茶飲印象。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>以北車據點、日系店裝與話題品項創造打卡動機，主要依靠 Threads「網友挖到新店」式口碑擴散。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>集中推薦後迅速排隊；肯定茶底與空間感，但也出現「不錯、不到值得排隊」的反向評論。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>消費者自主發現比品牌宣傳更有說服力，但排隊時間也會快速拉高產品期待值。</span></p><p><a href="https://www.marieclaire.com.tw/lifestyle/taste/93782" target="_blank" rel="noopener">媒體整理</a>　<a href="https://www.threads.com/@sthantw/post/DY9gMDRFFLA/" target="_blank" rel="noopener">排隊回饋</a></p></div></details>
-        <details><summary><span class="case-month">MAY</span><img class="case-thumb" src="https://keedan.com/track/files/2026/05/milk.jpg" alt="迷客夏與MIND.A.DAY果然荔夏聯名宣傳縮圖" loading="lazy"><span class="case-title">迷客夏 × MIND.A.DAY｜果然荔夏</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>荔枝、蜜桃與椰果組成清爽果香及咀嚼感，並提供無咖啡因選項，擴大飲用時段。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>與 MIND.A.DAY 聯名，透過 CoverCat 角色周邊與收藏誘因吸引 IP 粉絲首波購買。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>果香討喜、椰果口感受到肯定；但「無糖仍偏甜」成為高頻負評，關注也有相當比例來自周邊。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>IP能帶來首波流量，但甜度設定與飲品本身完成度才決定後續口碑。</span></p><p><a href="https://meet.eslite.com/tw/tc/article/202605250005" target="_blank" rel="noopener">系列資訊</a>　<a href="https://www.threads.com/@rx.oxo__x/post/DYACA2Jk4P8/" target="_blank" rel="noopener">試喝回饋</a></p></div></details>
-        <details><summary><span class="case-month">JUN</span><img class="case-thumb" src="https://img.cava.tw/cava2022/news/2026/06/01/1780324257_88314.png?w=800" alt="85度C杜拜可可冰沙宣傳縮圖" loading="lazy"><span class="case-title">85℃｜杜拜可可冰沙</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>巧克力冰沙加入巧克力碎片與脆片，以百元內價格提供濃郁、帶脆感的甜點型飲品。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>直接採用「杜拜巧克力」高熱度風味標籤，以親民價格與「平價版星冰樂」印象降低嘗鮮門檻。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>話題名稱有效帶動嘗試，但消費者開始關注開心果濃度、酥脆層次是否符合對杜拜巧克力的期待。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>杜拜巧克力仍具聲量，但僅使用名稱已不足夠，真實用料與口感還原度將成為評價關鍵。</span></p><p><a href="https://cava.tw/lifestyle/travel-food/265343" target="_blank" rel="noopener">產品與社群反應</a></p></div></details>
-        <details><summary><span class="case-month">JUN</span><img class="case-thumb" src="https://i0.wp.com/talkacemedia.com/wp-content/uploads/2026/03/%E6%96%B0%E8%81%9E%E7%A8%BF-08.jpg?fit=1024%2C768&amp;quality=89&amp;ssl=1" alt="五桐號與全家跨界聯名宣傳縮圖" loading="lazy"><span class="case-title">五桐號 × 全家｜手搖風味零售化</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>把泰奶、焙茶、杏仁凍、粉粿冬瓜等品牌熟悉風味，延伸為霜淇淋、飲品、冰沙與冰品。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>與全家進行多品類、全通路聯名，一次覆蓋 Let’s Tea、冰棒、新鮮屋飲品等不同消費場景。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>討論重點不只單一新品，而是「手搖店味道可在超商取得」的新鮮感與便利性。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>聯名價值從短期聲量升級為品牌風味資產的零售化，擴大接觸頻率與使用情境。</span></p><p><a href="https://talkacemedia.com/article/47636" target="_blank" rel="noopener">系列資訊</a></p></div></details>
-        <details><summary><span class="case-month">JUL</span><img class="case-thumb" src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/07/1783078955589-fd72c7265a0b47fb9f1e51d1f8f1f231-850x566.webp" alt="八曜和茶與愛之味極韻花生宣傳縮圖" loading="lazy"><span class="case-title">八曜和茶 × 愛之味｜極韻花生</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>白奶茶結合牛奶花生，兼具熟悉花生香、滑順奶茶與可吸食的完整花生顆粒。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>與愛之味共同轉譯經典罐裝甜品，以「好事會花生」諧音文案及聯名周邊強化分享性。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>熟悉的台灣味、顆粒口感與白奶茶滑順度最受肯定，話題兼具懷舊與獵奇感。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>把已有群眾基礎的懷舊甜品轉為當代手搖載體，比單純獵奇更有產品延續性。</span></p><p><a href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener">產品資訊</a>　<a href="https://www.threads.com/@grace730308/post/DaEu41REh5A/" target="_blank" rel="noopener">社群回饋</a></p></div></details>
-        <details><summary><span class="case-month">JUL</span><img class="case-thumb" src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/06/1782222339701-098ae4561c3c4e81afbeb23075700f32-850x599.webp" alt="得正蜜蘋苦瓜系列宣傳縮圖" loading="lazy"><span class="case-title">得正｜蜜蘋苦瓜</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>白玉苦瓜搭配蘋果果泥與綠茶／奶綠，以蘋果甜香降低苦味，保留清爽蔬果印象。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>用「苦瓜入手搖」的反差命名製造疑問與挑戰感，促使消費者試喝、拍攝反應並分享心得。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>多數認為苦味輕微、蘋果甜香明顯且整體清爽；接受度高於名稱帶來的第一印象。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>名字大膽、入口溫和有利首波擴散；若苦瓜辨識度過低，長期可能只剩話題名稱。</span></p><p><a href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener">產品介紹</a>　<a href="https://www.threads.com/@13brunch/post/DaO6KHZAShC/" target="_blank" rel="noopener">試喝回饋</a></p></div></details>
-        <details><summary><span class="case-month">JUL</span><img class="case-thumb" src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/06/1782731390782-4458f21dc48449ee834a91c8f7adadaa-850x566.webp" alt="迷客夏與beard papa's香草雲朵季宣傳縮圖" loading="lazy"><span class="case-title">迷客夏 × beard papa’s｜卡士達奶酪</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>把泡芙的香草卡士達、奶霜與奶酪轉成飲料，呈現如綿密焦糖布丁般的甜點口感。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>與 beard papa’s 進行甜點跨界聯名，並以限時免費加料降低嘗試門檻、推高首購率。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>奶酪口感受到肯定，但偏甜被頻繁提醒；部分消費者建議搭配無糖茶平衡甜度。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>「卡士達」同時傳達味道、質地與甜點畫面，比單純香草更容易形成社群記憶。</span></p><p><a href="https://www.walkerland.com.tw/subject/view/424255" target="_blank" rel="noopener">系列資訊</a>　<a href="https://www.threads.com/@liyu_foodmap/post/DazwsRkkzIi/" target="_blank" rel="noopener">實際試喝</a></p></div></details>
-        <details><summary><span class="case-month">JUL</span><img class="case-thumb" src="https://media.walkerland.com.tw/wlk_media/thumbnail/2026/07/1783496766918-a085cd9de1e44e63bcd23486394f91e8-850x600.webp" alt="大苑子榴槤芒果冰沙宣傳縮圖" loading="lazy"><span class="case-title">大苑子｜榴槤芒果冰沙</span><span class="plus">＋</span></summary><div class="case-body"><p class="case-line"><span class="case-label">產品賣點</span><span>以氣味辨識度極高的榴槤搭配大眾熟悉的芒果冰沙，兼具濃郁果香與話題反差。</span></p><p class="case-line"><span class="case-label">活動企劃</span><span>僅販售12天、限量3,500杯，搭配「敢不敢挑戰」溝通，利用期限與數量集中聲量。</span></p><p class="case-line"><span class="case-label">消費者回饋</span><span>榴槤愛好者期待濃郁風味，也有人認為榴槤被芒果甜味蓋過，評價呈明顯兩極。</span></p><p class="case-line verdict"><span class="case-label">趨勢判讀</span><span>高辨識、高爭議風味適合限時限量，以稀缺性放大討論，同時控制常態販售風險。</span></p><p><a href="https://www.walkerland.com.tw/subject/view/424196" target="_blank" rel="noopener">活動資訊</a>　<a href="https://www.threads.com/@walkerland_kadokawa/post/DahsBsbgZQ0/" target="_blank" rel="noopener">社群回饋</a></p></div></details>
-      </div>
-    </section>
-
-    <section id="insights">
-      <div class="section-head">
-        <div class="section-no">05 · INSIGHTS</div>
-        <div><h2>聲量與長期需求必須分開看</h2><p class="section-sub">同一個「爆紅」可能來自穩定季節需求、產品延伸潛力、獵奇留言或聯名粉絲，商業價值並不相同。</p></div>
-      </div>
-      <div class="matrix">
-        <article class="matrix-card"><h3>穩定需求型</h3><p>芒果、楊枝甘露、荔枝、蜜桃。市場大、消費者熟悉，但新品必須靠茶底、椰奶、優格或口感做差異。</p></article>
-        <article class="matrix-card"><h3>可延伸成長型</h3><p>花生、仙草、粉粿、卡士達、開心果。兼具熟悉度與新品感，較有機會發展多SKU或跨載體系列。</p></article>
-        <article class="matrix-card"><h3>短期爆量型</h3><p>苦瓜、榴槤、鹼粽、番茄蛋花湯。容易取得留言與媒體標題，但回購率需要另外驗證。</p></article>
-        <article class="matrix-card"><h3>聯名驅動型</h3><p>fwee、MIND.A.DAY、beard papa’s、愛之味。合作方真正進入配方時，才能同時帶動產品記憶與收藏動機。</p></article>
-      </div>
-    </section>
-
-    <section id="method">
-      <div class="section-head">
-        <div class="section-no">06 · METHOD</div>
-        <div><h2>研究範圍與閱讀方式</h2></div>
-      </div>
-      <div class="notes"><strong>範圍：</strong>台灣市場；涵蓋連鎖手搖、甜品／冰品、咖啡跨界及超商零售。<br><strong>判準：</strong>短期洗版與排隊／售罄訊號、新風味與產品創新、聯名與活動操作、公開消費者試喝回饋。<br><strong>限制：</strong>本報告為公開可見 Threads、Instagram、品牌資料與媒體報導的質化掃描，未使用平台後台或付費社群聆聽資料庫，因此不將擴散層級視為精確聲量排名。</div>
-    </section>
+    <div class="notes"><strong>說明：</strong>本頁為市調報告入口，每月更新一次。各報告為公開可見社群討論、媒體報導與品牌資料的質化掃描，擴散層級與聲量判讀僅供參考，不代表平台後台精確數據。</div>
   </main>
 
-  <footer><div class="shell">2026.05–07 Taiwan Hand-shaken Drinks & Dessert Social Trend Report</div></footer>
-
-  <script>
-    const buttons = document.querySelectorAll('.filter-btn');
-    const rows = document.querySelectorAll('tbody tr[data-months]');
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(item => item.classList.remove('active'));
-        button.classList.add('active');
-        const filter = button.dataset.filter;
-        rows.forEach(row => {
-          const months = row.dataset.months.split(' ');
-          row.hidden = filter !== 'all' && !months.includes(filter);
-        });
-      });
-    });
-  </script>
+  <footer><div class="shell">Taiwan Hand-shaken Drinks & Dessert Market Trend Reports</div></footer>
 </body>
 </html>
